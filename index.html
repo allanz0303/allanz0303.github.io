@@ -3,221 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RACYN | F1 Hub & Sim Racing Australia</title>
+    <title>RACYN | Ascend to the Peak</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; scroll-behavior: smooth; }
-        .racing-red { color: #FF0000; }
-        .bg-racing-red { background-color: #FF0000; }
         .italic-heading { font-style: italic; text-transform: uppercase; letter-spacing: -0.04em; }
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); }
         
-        /* Interactive News Cards */
-        .news-card { border-left: 4px solid #333; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .news-card:hover { transform: translateX(8px); background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%); border-left-width: 8px; }
-        .news-ferrari { border-left-color: #FF0000; }
-        .news-williams { border-left-color: #00A0FF; }
-        .news-tech { border-left-color: #888888; }
+        /* Team Accents */
+        .team-border-ferrari { border-left: 4px solid #FF0000; }
+        .team-border-mclaren { border-left: 4px solid #FF8700; }
+        .team-border-redbull { border-left: 4px solid #0600EF; }
+        .team-border-mercedes { border-left: 4px solid #00D2BE; }
+        .team-border-aston { border-left: 4px solid #006F62; }
+        .team-border-alpine { border-left: 4px solid #FF87BC; }
+        .team-border-williams { border-left: 4px solid #00A0FF; }
+        .team-border-rb { border-left: 4px solid #6692FF; }
+        .team-border-haas { border-left: 4px solid #B6BABD; }
+        .team-border-audi { border-left: 4px solid #F50505; }
+        .team-border-cadillac { border-left: 4px solid #FFD700; }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #FF0000; }
+        .scroll-container::-webkit-scrollbar { height: 6px; }
+        .scroll-container::-webkit-scrollbar-track { background: #050505; }
+        .scroll-container::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
     </style>
 </head>
 <body>
 
-    <nav class="border-b border-white/10 bg-black/80 backdrop-blur-md sticky top-0 z-50 transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 opacity-100 hover:opacity-80 transition">
-                    <img class="h-10 w-auto" src="logo.jpeg" alt="RACYN Logo">
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8 uppercase text-[11px] font-black tracking-widest text-zinc-400">
-                        <a href="#" class="text-white hover:text-red-500 transition-colors">Home</a>
-                        <a href="#news" class="hover:text-white transition-colors">Latest News</a>
-                        <a href="#standings" class="hover:text-white transition-colors">Standings</a>
-                        <a href="#calendar" class="hover:text-white transition-colors">Calendar</a>
-                    </div>
-                </div>
-                <div class="bg-racing-red px-4 py-1.5 skew-x-[-10deg] shadow-[0_0_15px_rgba(255,0,0,0.4)]">
-                    <div class="skew-x-[10deg] text-[10px] font-black uppercase italic text-white">
-                        Aus GP: March 08
-                    </div>
-                </div>
+    <nav class="bg-black/90 backdrop-blur-xl border-b border-zinc-800 sticky top-0 z-50 h-28">
+        <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+            <div class="flex-shrink-0">
+                <img class="h-20 w-auto" src="Racyn Logo.jpg" alt="RACYN Logo">
+            </div>
+            <div class="hidden md:flex items-center space-x-10 uppercase text-xs font-black tracking-widest text-zinc-400">
+                <a href="#" class="text-white hover:text-red-600 transition-colors">Home</a>
+                <a href="#news" class="hover:text-white transition-colors">Paddock</a>
+                <a href="#schedule" class="hover:text-white transition-colors">Schedule</a>
+                <a href="#teams" class="hover:text-white transition-colors">Teams</a>
+                <a href="#sims" class="border border-red-600 text-red-500 px-4 py-2 hover:bg-red-600 hover:text-white transition-all">Sim Shop</a>
             </div>
         </div>
     </nav>
 
-    <header class="relative h-[70vh] flex items-center overflow-hidden">
+    <header class="relative h-[75vh] flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=100&w=2000" class="w-full h-full object-cover opacity-40 grayscale-[30%]" alt="Mountain Landscape">
             <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/40"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent"></div>
         </div>
         
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="inline-block border border-red-600 text-red-500 px-3 py-1 mb-6 text-[10px] font-bold uppercase tracking-widest">Est. 2026 Australia</div>
-            <h1 class="text-6xl md:text-9xl font-black italic-heading leading-[0.9] tracking-tighter">ASCEND TO<br><span class="racing-red text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400">THE PEAK.</span></h1>
+            <h1 class="text-6xl md:text-9xl font-black italic-heading leading-[0.9] tracking-tighter">ASCEND TO<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400">THE PEAK.</span></h1>
             <p class="mt-6 text-xl text-zinc-400 max-w-xl font-medium leading-relaxed italic">The home of Australian Sim Racing hardware & Formula 1 insights.</p>
             <div class="mt-10 flex flex-wrap gap-5">
-                <a href="#calendar" class="bg-white text-black hover:bg-zinc-200 px-8 py-3.5 font-bold uppercase text-xs tracking-widest transition-all">2026 Schedule</a>
+                <a href="#schedule" class="bg-white text-black hover:bg-zinc-200 px-8 py-3.5 font-bold uppercase text-xs tracking-widest transition-all">2026 Schedule</a>
                 <a href="#sims" class="border border-zinc-700 hover:border-red-600 text-zinc-300 hover:text-white px-8 py-3.5 font-bold uppercase text-xs tracking-widest transition-all">Sim Gear Info</a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <section id="news">
+            <div class="flex items-end justify-between border-b border-zinc-800 pb-4 mb-8">
+                <h1 class="text-4xl md:text-5xl font-black italic-heading text-white">Paddock Briefing</h1>
+                <span class="text-xs font-bold text-red-600 uppercase tracking-widest animate-pulse">Live: Feb 2026</span>
+            </div>
             
-            <div class="lg:col-span-2 space-y-10" id="news">
-                <div class="flex items-end justify-between border-b border-zinc-800 pb-4">
-                    <h2 class="text-3xl font-black italic-heading text-white">Paddock Briefing</h2>
-                    <span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Feb 04, 2026</span>
-                </div>
-                
-                <div class="news-card news-ferrari p-8 bg-zinc-900/30 cursor-pointer group">
-                    <div class="flex justify-between items-start">
-                        <span class="text-red-500 font-black text-[10px] uppercase tracking-widest mb-3 block">Ferrari / Hamilton</span>
-                        <span class="opacity-0 group-hover:opacity-100 transition-opacity text-red-500">→</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="col-span-1 md:col-span-2 lg:col-span-2 glass-panel p-8 team-border-ferrari group cursor-pointer hover:bg-white/5 transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-red-500 font-black text-[10px] uppercase tracking-widest">Ferrari Headline</span>
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity text-red-500 text-xl">→</span>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-bold leading-tight group-hover:text-white text-zinc-100 transition-colors">The Hamilton Era Begins in Maranello</h3>
-                    <p class="text-zinc-400 mt-3 text-sm leading-relaxed">Early simulator data indicates the 2026 Ferrari power unit is exceeding torque targets. Lewis has completed his first seat fitting and aero-briefing with Vasseur.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold leading-none mb-4 group-hover:text-red-500 transition-colors">Hamilton's Red Revolution Begins</h2>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-2xl">
+                        The wait is over. Lewis Hamilton has completed his first official test in the SF-26. Telemetry data suggests the new active-aero regulations play perfectly into his late-braking style.
+                    </p>
                 </div>
 
-                <div class="news-card news-tech p-8 bg-zinc-900/30 cursor-pointer group">
-                     <div class="flex justify-between items-start">
-                        <span class="text-zinc-500 font-black text-[10px] uppercase tracking-widest mb-3 block">Tech Analysis</span>
-                        <span class="opacity-0 group-hover:opacity-100 transition-opacity text-white">→</span>
-                    </div>
-                    <h3 class="text-2xl md:text-3xl font-bold leading-tight group-hover:text-white text-zinc-100 transition-colors">Active Aero: The 2026 Variable</h3>
-                    <p class="text-zinc-400 mt-3 text-sm leading-relaxed">F1's move toward moveable wings on both front and rear axles is aimed at increasing straight-line speed. Teams are currently struggling with aero-balance shifts in the simulator.</p>
-                </div>
-
-                <div class="news-card news-williams p-8 bg-zinc-900/30 cursor-pointer group">
-                     <div class="flex justify-between items-start">
-                        <span class="text-blue-500 font-black text-[10px] uppercase tracking-widest mb-3 block">Williams Racing</span>
-                        <span class="opacity-0 group-hover:opacity-100 transition-opacity text-blue-500">→</span>
-                    </div>
-                    <h3 class="text-2xl md:text-3xl font-bold leading-tight group-hover:text-white text-zinc-100 transition-colors">Sainz Praises Grove's Trajectory</h3>
-                    <p class="text-zinc-400 mt-3 text-sm leading-relaxed">Carlos Sainz confirms infrastructure updates at Williams are paying dividends. The FW47 is expected to fight for podiums in the opening Asian leg of the season.</p>
+                <div class="glass-panel p-8 team-border-audi group cursor-pointer hover:bg-white/5 transition">
+                    <span class="text-zinc-500 font-black text-[10px] uppercase tracking-widest mb-2 block">New Entrant</span>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-red-600 transition-colors">Audi's Quiet Confidence</h3>
+                    <p class="text-zinc-400 text-xs leading-relaxed">
+                        The works team from Ingolstadt has arrived. Hülkenberg reports the new power unit is "bulletproof" after 300 laps in Barcelona.
+                    </p>
                 </div>
             </div>
+        </section>
 
-            <div class="space-y-12">
-                
-                <div id="calendar" class="glass-card p-1 border-t-4 border-racing-red">
-                    <div class="p-5 pb-2">
-                        <h2 class="text-lg font-black italic-heading">2026 Schedule</h2>
-                    </div>
-                    <div class="max-h-[450px] overflow-y-auto custom-scrollbar">
-                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors border-b border-white/5">
-                            <div class="bg-racing-red text-white w-10 h-10 flex flex-col items-center justify-center rounded-sm shrink-0">
-                                <span class="text-[8px] font-bold leading-none">MAR</span>
-                                <span class="text-sm font-black leading-none">08</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-tight text-white">Australian GP</h4>
-                                <p class="text-[9px] text-zinc-500 uppercase font-bold">Albert Park</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors border-b border-white/5">
-                            <div class="bg-zinc-800 text-zinc-400 w-10 h-10 flex flex-col items-center justify-center rounded-sm shrink-0">
-                                <span class="text-[8px] font-bold leading-none">MAR</span>
-                                <span class="text-sm font-black leading-none">15</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-tight text-zinc-300">Chinese GP</h4>
-                                <p class="text-[9px] text-zinc-600 uppercase font-bold">Shanghai</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors border-b border-white/5">
-                            <div class="bg-zinc-800 text-zinc-400 w-10 h-10 flex flex-col items-center justify-center rounded-sm shrink-0">
-                                <span class="text-[8px] font-bold leading-none">MAR</span>
-                                <span class="text-sm font-black leading-none">29</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-tight text-zinc-300">Japanese GP</h4>
-                                <p class="text-[9px] text-zinc-600 uppercase font-bold">Suzuka</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors border-b border-white/5">
-                            <div class="bg-zinc-800 text-zinc-400 w-10 h-10 flex flex-col items-center justify-center rounded-sm shrink-0">
-                                <span class="text-[8px] font-bold leading-none">APR</span>
-                                <span class="text-sm font-black leading-none">05</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-tight text-zinc-300">Bahrain GP</h4>
-                                <p class="text-[9px] text-zinc-600 uppercase font-bold">Sakhir</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors border-b border-white/5">
-                            <div class="bg-zinc-800 text-zinc-400 w-10 h-10 flex flex-col items-center justify-center rounded-sm shrink-0">
-                                <span class="text-[8px] font-bold leading-none">APR</span>
-                                <span class="text-sm font-black leading-none">12</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-tight text-zinc-300">Saudi Arabian GP</h4>
-                                <p class="text-[9px] text-zinc-600 uppercase font-bold">Jeddah</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors border-b border-white/5">
-                            <div class="bg-zinc-800 text-zinc-400 w-10 h-10 flex flex-col items-center justify-center rounded-sm shrink-0">
-                                <span class="text-[8px] font-bold leading-none">MAY</span>
-                                <span class="text-sm font-black leading-none">03</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-tight text-zinc-300">Miami GP</h4>
-                                <p class="text-[9px] text-zinc-600 uppercase font-bold">Miami Gardens</p>
-                            </div>
+        <section id="schedule">
+            <h2 class="text-2xl font-black italic-heading mb-6 flex items-center gap-3">
+                <span class="w-8 h-1 bg-red-600"></span>
+                2026 Race Calendar
+            </h2>
+            
+            <div class="scroll-container flex gap-4 overflow-x-auto pb-6">
+                <div class="flex-none w-64 glass-panel p-6 border-t-4 border-t-red-600 group hover:-translate-y-1 transition-transform">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-4xl font-black text-white/20">01</span>
+                        <div class="text-right">
+                            <div class="text-[10px] font-bold text-zinc-500 uppercase">Mar 06-08</div>
+                            <div class="text-xs font-black text-red-500 uppercase">Opening Round</div>
                         </div>
                     </div>
-                    <div class="p-3 bg-zinc-900/50 text-center">
-                         <span class="text-[9px] font-bold uppercase text-zinc-500 tracking-widest cursor-pointer hover:text-white transition">View Full Calendar</span>
-                    </div>
+                    <h3 class="text-xl font-bold uppercase italic-heading">Australia</h3>
+                    <p class="text-xs text-zinc-400 mt-1">Albert Park, Melbourne</p>
                 </div>
 
-                <div id="standings" class="glass-card p-6">
-                    <h2 class="text-lg font-black italic-heading mb-6 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-zinc-500 rounded-full"></span>
-                        2025 Top 3
-                    </h2>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center text-sm border-b border-zinc-800 pb-3">
-                            <div>
-                                <span class="font-black text-white mr-3">01</span>
-                                <span class="font-bold text-zinc-300">L. Norris</span>
-                                <span class="text-[9px] bg-orange-500/20 text-orange-500 px-1 py-0.5 ml-2 font-bold rounded-sm">MCL</span>
-                            </div>
-                            <span class="text-white font-bold">423 <span class="text-[9px] text-zinc-500">PTS</span></span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm border-b border-zinc-800 pb-3">
-                            <div>
-                                <span class="font-black text-zinc-600 mr-3">02</span>
-                                <span class="font-bold text-zinc-300">M. Verstappen</span>
-                                <span class="text-[9px] bg-blue-900/40 text-blue-400 px-1 py-0.5 ml-2 font-bold rounded-sm">RBR</span>
-                            </div>
-                            <span class="text-zinc-400 font-bold">421 <span class="text-[9px] text-zinc-600">PTS</span></span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <div>
-                                <span class="font-black text-zinc-600 mr-3">03</span>
-                                <span class="font-bold text-zinc-300">O. Piastri</span>
-                                <span class="text-[9px] bg-orange-500/20 text-orange-500 px-1 py-0.5 ml-2 font-bold rounded-sm">MCL</span>
-                            </div>
-                            <span class="text-zinc-400 font-bold">410 <span class="text-[9px] text-zinc-600">PTS</span></span>
-                        </div>
+                <div class="flex-none w-64 glass-panel p-6 border-t-4 border-t-zinc-800 hover:border-t-white transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-4xl font-black text-white/20">02</span>
+                        <div class="text-right"><div class="text-[10px] font-bold text-zinc-500 uppercase">Mar 13-15</div></div>
                     </div>
+                    <h3 class="text-xl font-bold uppercase italic-heading">China</h3>
+                    <p class="text-xs text-zinc-400 mt-1">Shanghai International</p>
                 </div>
 
-                <div id="sims" class="relative overflow-hidden group border border-zinc-800 bg-zinc-900">
-                    <div class="absolute inset-0 bg-racing-red translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
-                    <div class="relative z-10 p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <h2 class="text-xl font-black italic-heading text-white">Racyn Sim Hardware</h2>
-                            <svg class="w-5 h-5 text-white transform -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </div>
-                        <p class="
+                <div class="flex-none w-64 glass-panel p-6 border-t-4 border-t-zinc-800 hover:border-t-white transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-4xl font-black text-white/20">03</span>
+                        <div class="text-right"><div class="text-[10px] font-bold text-zinc-500 uppercase">Mar 27-29</div></div>
+                    </div>
+                    <h3 class="text-xl font-bold uppercase italic-heading">Japan</h3>
+                    <p class="text-xs text-zinc-400 mt-1">Suzuka Circuit</p>
+                </div>
+
+                <div class="flex-none w-64 glass-panel p-6 border-t-4 border-t-zinc-800 hover:border-t-white transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-4xl font-black text-white/20">04</span>
+                        <div class="text-right"><div class="text-[10px] font-bold text-zinc-500 uppercase">Apr 10-12</div></div>
+                    </div>
+                    <h3 class="text-xl font-bold uppercase italic-heading">Bahrain</h3>
+                    <p class="text-xs text-zinc-400 mt-1">Sakhir</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="teams">
+            <h2 class="text-2xl font-black italic-heading mb-6 flex items-center gap-3">
+                <span class="w-8 h-1 bg-white"></span>
+                2026 Confirmed Grid
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass-panel p-5 team-border-mclaren hover:bg-zinc-900 transition">
+                    <div class="text-[10px] font-bold uppercase text-zinc-500 mb-2">Constructors' Champions</div>
+                    <h3 class="text-lg font-black italic-heading mb-4">McLaren</h3>
+                    <div class="space-y-2 text-sm font-bold">
+                        <div class="flex justify-between border-b border-white/5 pb-1"><span>L. Norris</span> <span class="text-zinc-500">01</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-1"><span>O. Piastri</span> <span class="text-zinc-500">81</span></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-5 team-border-ferrari hover:bg-zinc-900 transition">
+                    <div class="text-[10px] font-bold uppercase text-zinc-500 mb-2">Scuderia Ferrari</div>
+                    <h3 class="text-lg font-black italic-heading mb-4">Ferrari HP</h3>
+                    <div class="space-y-2 text-sm font-bold">
+                        <div class="flex justify-between border-b border-white/5 pb-1"><span>C. Leclerc</span> <span class="text-zinc-500">16</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-1"><span>L. Hamilton</span> <span class="text-zinc-500">44</span></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-5 team-border-audi hover:bg-zinc-900 transition">
+                    <div class="text-[10px] font-bold uppercase text-red-500 mb-2">New Entrant</div>
+                    <h3 class="text-lg font-black italic-heading mb-4">Audi F1</h3>
+                    <div class="space-y-2 text-sm font-bold">
+                        <div class="flex justify-between border-b border-white/5 pb-1"><span>N. Hulkenberg</span> <span class="text-zinc-500">27</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-1"><span>G. Bortoleto</span> <span class="text-zinc-500">05</span></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-5 team-border-cadillac hover:bg-zinc-900 transition">
+                    <div class="text-[10px] font-bold uppercase text-yellow-500 mb-2">New Entrant</div>
+                    <h3 class="text-lg font-black italic-heading mb-4">Cadillac F1</h3>
+                    <div class="space-y-2 text-sm font-bold">
+                        <div class="flex justify-between border-b border-white/5 pb-1"><span>S. Perez</span> <span class="text-zinc-500">11</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-1"><span>V. Bottas</span> <span class="text-zinc-500">77</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="history" class="glass-panel p-8 border border-zinc-800">
+             <h2 class="text-lg font-black italic-heading mb-6 text-zinc-400">2025 Season Summary</h2>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                 <div class="p-4 border border-zinc-800 bg-zinc-900/50">
+                     <div class="text-[10px] font-bold uppercase text-zinc-500 mb-2">World Champion</div>
+                     <div class="text-2xl font-black italic-heading text-orange-500">Lando Norris</div>
+                     <div class="text-sm font-bold text-white mt-1">423 PTS</div>
+                 </div>
+                 <div class="p-4 border border-zinc-800 bg-zinc-900/50">
+                     <div class="text-[10px] font-bold uppercase text-zinc-500 mb-2">Runner Up</div>
+                     <div class="text-2xl font-black italic-heading text-blue-900">Max Verstappen</div>
+                     <div class="text-sm font-bold text-white mt-1">421 PTS</div>
+                 </div>
+                 <div class="p-4 border border-zinc-800 bg-zinc-900/50">
+                     <div class="text-[10px] font-bold uppercase text-zinc-500 mb-2">Third Place</div>
+                     <div class="text-2xl font-black italic-heading text-orange-500">Oscar Piastri</div>
+                     <div class="text-sm font-bold text-white mt-1">410 PTS</div>
+                 </div>
+             </div>
+        </section>
+        
+        <section id="sims" class="text-center py-12">
+            <h2 class="text-3xl font-black italic-heading mb-4">RACYN SIM HARDWARE</h2>
+            <p class="text-zinc-400 max-w-xl mx-auto mb-8">Professional grade simulators coming late 2026. <br>Join the waitlist for the first Australian Direct-Drive ecosystem.</p>
+            <button class="bg-red-600 hover:bg-red-700 text-white font-black uppercase text-xs tracking-widest px-8 py-4 transition-all">Join Waitlist</button>
+        </section>
+
+    </main>
+
+    <footer class="bg-black py-10 border-t border-zinc-900 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+             <img class="h-10 w-auto mx-auto mb-6 opacity-40 grayscale" src="Racyn Logo.jpg" alt="RACYN Logo">
+             <p class="text-[10px] text-zinc-600 uppercase tracking-widest">© 2026 RACYN.COM.AU</p>
+        </div>
+    </footer>
+
+</body>
+</html>
