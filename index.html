@@ -1,6 +1,804 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RACYN - The Home of Formula 1 & Racing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #15151e;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: #15151e;
+            border-bottom: 1px solid #38383f;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: #e10600;
+            padding: 0.4rem 0;
+            font-size: 0.75rem;
+            text-align: center;
+            letter-spacing: 0.05rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 0.15rem;
+            color: #e10600;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #e10600;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 3rem;
+            left: 0;
+            right: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: #e10600;
+            padding: 0.4rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+
+        /* Featured Grid */
+        .featured-section {
+            padding: 3rem 0;
+            background: #15151e;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: #e10600;
+            margin-bottom: 2rem;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .featured-main {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .featured-main:hover {
+            transform: scale(1.02);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .featured-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .featured-tag {
+            display: inline-block;
+            background: #e10600;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .featured-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .featured-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .featured-card {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .featured-card:hover {
+            transform: scale(1.05);
+        }
+
+        .featured-card-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .news-card {
+            background: #1e1e28;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-tag {
+            color: #e10600;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-excerpt {
+            color: #b5b5be;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Standings */
+        .standings-section {
+            background: #1e1e28;
+            padding: 3rem 0;
+        }
+
+        .standings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .view-all {
+            color: #e10600;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+        }
+
+        .standings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .standing-card {
+            background: #15151e;
+            border-radius: 4px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .position-badge {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #e10600;
+            min-width: 50px;
+        }
+
+        .driver-info {
+            flex: 1;
+        }
+
+        .driver-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .team-name {
+            color: #b5b5be;
+            font-size: 0.9rem;
+        }
+
+        .points {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #e10600;
+        }
+
+        /* Schedule */
+        .schedule-section {
+            padding: 3rem 0;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .race-card {
+            background: #1e1e28;
+            border-radius: 4px;
+            overflow: hidden;
+            border-left: 4px solid #e10600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .race-card:hover {
+            transform: translateX(5px);
+        }
+
+        .race-header {
+            background: linear-gradient(135deg, #e10600, #ff4d00);
+            padding: 1rem 1.5rem;
+        }
+
+        .round-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 0.3rem;
+        }
+
+        .race-name {
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .race-details {
+            padding: 1.5rem;
+        }
+
+        .race-date {
+            font-size: 0.95rem;
+            color: #b5b5be;
+            margin-bottom: 0.5rem;
+        }
+
+        .race-location {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #e10600, #ff4d00);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0d0d14;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid #38383f;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: #e10600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #b5b5be;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 2;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #38383f;
+            color: #b5b5be;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .standings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
 <body>
-<h1>It works 🎉</h1>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            🏁 2026 SEASON STARTING SOON • FOLLOW THE ACTION AT RACYN.COM.AU
+        </div>
+        <nav class="nav-container">
+            <div class="logo-brand">
+                <div class="logo">RACYN</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#standings">Results</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#drivers">Drivers</a></li>
+                <li><a href="#teams">Teams</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='500'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23e10600;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23000000;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad1)' width='1920' height='500'/%3E%3Cpath d='M0,250 Q400,150 800,250 T1920,250' stroke='%23ffffff' stroke-width='3' fill='none' opacity='0.1'/%3E%3Cpath d='M0,280 Q400,180 800,280 T1920,280' stroke='%23ffffff' stroke-width='2' fill='none' opacity='0.05'/%3E%3C/svg%3E" alt="F1 Racing" class="hero-image">
+        <div class="hero-content">
+            <div class="container">
+                <span class="hero-label">Latest</span>
+                <h1 class="hero-title">Williams Unveil Bold New Livery for 2026 Season</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured News -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-label">Latest News</div>
+            
+            <div class="featured-grid">
+                <div class="featured-main">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='400'%3E%3Crect fill='%23001489' width='900' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%23ffffff' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-weight='bold'%3EWILLIAMS 2026 LIVERY%3C/text%3E%3C/svg%3E" alt="Williams 2026" class="featured-image">
+                    <div class="featured-overlay">
+                        <span class="featured-tag">Team News</span>
+                        <h2 class="featured-title">Williams show off their new livery for 2026 F1 season</h2>
+                    </div>
+                </div>
+
+                <div class="featured-sidebar">
+                    <div class="featured-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='190'%3E%3Crect fill='%23006f62' width='400' height='190'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23ffffff' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-weight='bold'%3EASTON MARTIN%3C/text%3E%3C/svg%3E" alt="Aston Martin" class="featured-card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Newey opens up on debut Aston Martin design</h3>
+                        </div>
+                    </div>
+
+                    <div class="featured-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='190'%3E%3Crect fill='%230600ef' width='400' height='190'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23ffffff' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-weight='bold'%3EBARCELONA SHAKEDOWN%3C/text%3E%3C/svg%3E" alt="Barcelona" class="featured-card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">What we learned from the Barcelona Shakedown</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23dc0000' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='%23ffffff' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-weight='bold'%3EFERRARI%3C/text%3E%3C/svg%3E" alt="Ferrari" class="news-image">
+                    <div class="news-content">
+                        <span class="news-tag">Analysis</span>
+                        <h3 class="news-title">Hamilton says Ferrari's 'winning mentality' stronger than ever</h3>
+                        <p class="news-excerpt">Lewis Hamilton discusses his impressions of the Ferrari team culture and their championship ambitions.</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23ff8700' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='%23000000' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-weight='bold'%3EMCLAREN%3C/text%3E%3C/svg%3E" alt="McLaren" class="news-image">
+                    <div class="news-content">
+                        <span class="news-tag">Interview</span>
+                        <h3 class="news-title">Lando Norris on his key takeaways from Barcelona Shakedown</h3>
+                        <p class="news-excerpt">The McLaren driver shares his thoughts on the team's pre-season preparations.</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%233671c6' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='28' fill='%23ffffff' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-weight='bold'%3ERED BULL RACING%3C/text%3E%3C/svg%3E" alt="Red Bull" class="news-image">
+                    <div class="news-content">
+                        <span class="news-tag">Team News</span>
+                        <h3 class="news-title">Verstappen pleased with 'good start' as Red Bull 'hit the ground running'</h3>
+                        <p class="news-excerpt">Max Verstappen expresses confidence in Red Bull's early 2026 form.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standings -->
+    <section class="standings-section" id="standings">
+        <div class="container">
+            <div class="standings-header">
+                <h2 class="section-title">2025 Final Standings</h2>
+                <a href="#" class="view-all">View Full Standings →</a>
+            </div>
+
+            <div class="standings-grid">
+                <div class="standing-card">
+                    <div class="position-badge">1</div>
+                    <div class="driver-info">
+                        <div class="driver-name">Lando Norris</div>
+                        <div class="team-name">McLaren</div>
+                    </div>
+                    <div class="points">423</div>
+                </div>
+
+                <div class="standing-card">
+                    <div class="position-badge">2</div>
+                    <div class="driver-info">
+                        <div class="driver-name">Max Verstappen</div>
+                        <div class="team-name">Red Bull Racing</div>
+                    </div>
+                    <div class="points">421</div>
+                </div>
+
+                <div class="standing-card">
+                    <div class="position-badge">3</div>
+                    <div class="driver-info">
+                        <div class="driver-name">Oscar Piastri</div>
+                        <div class="team-name">McLaren</div>
+                    </div>
+                    <div class="points">410</div>
+                </div>
+
+                <div class="standing-card">
+                    <div class="position-badge">4</div>
+                    <div class="driver-info">
+                        <div class="driver-name">George Russell</div>
+                        <div class="team-name">Mercedes</div>
+                    </div>
+                    <div class="points">319</div>
+                </div>
+
+                <div class="standing-card">
+                    <div class="position-badge">5</div>
+                    <div class="driver-info">
+                        <div class="driver-name">Charles Leclerc</div>
+                        <div class="team-name">Ferrari</div>
+                    </div>
+                    <div class="points">242</div>
+                </div>
+
+                <div class="standing-card">
+                    <div class="position-badge">6</div>
+                    <div class="driver-info">
+                        <div class="driver-name">Lewis Hamilton</div>
+                        <div class="team-name">Ferrari</div>
+                    </div>
+                    <div class="points">156</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="schedule-section" id="schedule">
+        <div class="container">
+            <div class="standings-header">
+                <h2 class="section-title">2026 Race Calendar</h2>
+                <a href="#" class="view-all">Full Schedule →</a>
+            </div>
+
+            <div class="schedule-grid">
+                <div class="race-card">
+                    <div class="race-header">
+                        <div class="round-label">Pre-Season Testing</div>
+                        <div class="race-name">Bahrain</div>
+                    </div>
+                    <div class="race-details">
+                        <div class="race-date">11 - 13 Feb 2026</div>
+                        <div class="race-location">Bahrain International Circuit</div>
+                    </div>
+                </div>
+
+                <div class="race-card">
+                    <div class="race-header">
+                        <div class="round-label">Round 1</div>
+                        <div class="race-name">Australian GP</div>
+                    </div>
+                    <div class="race-details">
+                        <div class="race-date">06 - 08 Mar 2026</div>
+                        <div class="race-location">Melbourne, Australia</div>
+                    </div>
+                </div>
+
+                <div class="race-card">
+                    <div class="race-header">
+                        <div class="round-label">Round 2</div>
+                        <div class="race-name">Chinese GP</div>
+                    </div>
+                    <div class="race-details">
+                        <div class="race-date">13 - 15 Mar 2026</div>
+                        <div class="race-location">Shanghai, China</div>
+                    </div>
+                </div>
+
+                <div class="race-card">
+                    <div class="race-header">
+                        <div class="round-label">Round 3</div>
+                        <div class="race-name">Japanese GP</div>
+                    </div>
+                    <div class="race-details">
+                        <div class="race-date">20 - 22 Mar 2026</div>
+                        <div class="race-location">Suzuka, Japan</div>
+                    </div>
+                </div>
+
+                <div class="race-card">
+                    <div class="race-header">
+                        <div class="round-label">Round 4</div>
+                        <div class="race-name">Bahrain GP</div>
+                    </div>
+                    <div class="race-details">
+                        <div class="race-date">13 - 15 Apr 2026</div>
+                        <div class="race-location">Sakhir, Bahrain</div>
+                    </div>
+                </div>
+
+                <div class="race-card">
+                    <div class="race-header">
+                        <div class="round-label">Round 5</div>
+                        <div class="race-name">Saudi Arabian GP</div>
+                    </div>
+                    <div class="race-details">
+                        <div class="race-date">20 - 22 Apr 2026</div>
+                        <div class="race-location">Jeddah, Saudi Arabia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">🏁 Racing Simulators Coming Soon</h2>
+            <p class="cta-text">RACYN will soon be your ultimate destination for premium racing simulators. Experience the thrill of Formula 1 and motorsport from the comfort of your home.</p>
+            <p style="font-size: 0.95rem; opacity: 0.95;">Stay tuned for exclusive product launches, special offers, and the latest in racing technology.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#schedule">2026 Schedule</a></li>
+                        <li><a href="#standings">2025 Results</a></li>
+                        <li><a href="#news">Latest News</a></li>
+                        <li><a href="#drivers">Drivers</a></li>
+                        <li><a href="#teams">Teams</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>About RACYN</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Coming Soon: Racing Sims</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>F1 Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">What is Formula 1?</a></li>
+                        <li><a href="#">2026 Regulations</a></li>
+                        <li><a href="#">F1 History</a></li>
+                        <li><a href="#">Race Circuits</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 RACYN. All rights reserved. | racyn.com.au</p>
+                <p style="margin-top: 0.5rem;">Formula 1 Fan Hub • Racing Simulators Coming Soon • Melbourne, Australia</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
