@@ -4,14 +4,23 @@
   <meta charset="UTF-8" />
   <title>Team | RACYN</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#050505] text-white p-10">
-  <a href="../index.html" class="text-sm text-zinc-400 hover:text-white">← Back</a>
 
-  <h1 id="team-name" class="text-5xl font-black italic-heading mt-6"></h1>
+<body class="bg-[#050505] text-white font-['Inter']">
 
-  <div id="drivers" class="mt-8 space-y-4"></div>
+  <!-- Back -->
+  <div class="max-w-6xl mx-auto px-6 py-6">
+    <a href="/" class="text-sm text-zinc-400 hover:text-white">← Back</a>
+  </div>
 
+  <!-- 关键：详情容器 -->
+  <main
+    id="team-detail"
+    class="max-w-6xl mx-auto px-6 py-12">
+  </main>
+
+  <!-- 复用同一个 JS -->
   <script src="../js/teams.js"></script>
 </body>
 </html>
