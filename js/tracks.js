@@ -1,31 +1,49 @@
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("track");
 
-fetch("../data/schedule-2026.json")
-  .then(res => res.json())
-  .then(races => {
-    const race = races.find(r => r.slug === slug);
+Promise.all([
+  fetch("../data/schedule-2026.json").then(r => r.json()),
+  fetch("../data/tracks.json").then(r => r.json())
+])
+.then(([schedule, tracks]) => {
+  const race = schedule.find(r => r.slug === slug);
+  const track = tracks.find(t => t.slug === slug);
 
-    if (!race) {
-      document.body.innerHTML = `
-        <div class="text-center mt-20 text-zinc-500">
-          Track not found
-        </div>`;
-      return;
-    }
+  if (!race || !track) {
+    document.body.innerHTML = `
+      <div class="text-center mt-20 text-zinc-500">
+        Track data not found
+      </div>`;
+    return;
+  }
 
-    document.getElementById("round").innerText =
-      `Round ${race.round}`;
+  // Header
+  document.getElementById("round").innerText =
+    `Round ${race.round}`;
 
-    document.getElementById("country").innerText =
-      race.country;
+  document.getElementById("country").innerText =
+    track.country;
 
-    document.getElementById("circuit").innerText =
-      race.circuit;
+  document.getElementById("circuit").innerText =
+    track.name;
 
-    document.getElementById("date").innerText =
-      race.date;
+  document.getElementById("date").innerText =
+    race.date;
 
-    document.getElementById("circuit-name").innerText =
-      race.circuit;
-  });
+  document.getElementById("circuit-name").innerText =
+    track.name;
+
+  document.getElementById("length").innerText =
+  `${track.length_km} km`;
+
+  document.getElementById("laps").innerText =
+    track.laps;
+
+  document.getElementById("corners").innerText =
+    track.corners;
+
+  document.getElementById("first_gp").innerText =
+    track.first_gp;
+
+  // （下一步可以继续塞更多字段）
+});

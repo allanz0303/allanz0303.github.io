@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "albert-park",
+    "name": "Albert Park Circuit",
+    "country": "Australia",
+    "city": "Melbourne",
+    "length_km": 5.278,
+    "laps": 58,
+    "corners": 14,
+    "first_gp": 1996,
+    "drs_zones": 4,
+    "type": "Street Circuit"
+  },
+  {
+    "slug": "suzuka",
+    "name": "Suzuka Circuit",
+    "country": "Japan",
+    "city": "Suzuka",
+    "length_km": 5.807,
+    "laps": 53,
+    "corners": 18,
+    "first_gp": 1987,
+    "drs_zones": 2,
+    "type": "Permanent"
+  },
+  {
+    "slug": "monza",
+    "name": "Autodromo Nazionale Monza",
+    "country": "Italy",
+    "city": "Monza",
+    "length_km": 5.793,
+    "laps": 53,
+    "corners": 11,
+    "first_gp": 1950,
+    "drs_zones": 2,
+    "type": "Permanent"
+  }
+]
