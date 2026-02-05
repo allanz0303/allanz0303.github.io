@@ -39,7 +39,7 @@
   {
     "round": 6,
     "slug": "miami",
-    "country": "Miami",
+    "country": "USA",
     "circuit": "Miami International Autodrome",
     "date": "May 4, 6:00 AM"
   },
@@ -60,7 +60,7 @@
   {
     "round": 9,
     "slug": "barcelona",
-    "country": "Barcelona-Catalunya",
+    "country": "Spain",
     "circuit": "Circuit de Barcelona-Catalunya",
     "date": "Jun 14, 11:00 PM"
   },
@@ -129,8 +129,8 @@
   },
   {
     "round": 19,
-    "slug": "americas",
-    "country": "United States",
+    "slug": "austin",
+    "country": "USA",
     "circuit": "Circuit of The Americas",
     "date": "Oct 26, 7:00 AM"
   },
@@ -143,7 +143,7 @@
   },
   {
     "round": 21,
-    "slug": "jose-carlos-pace",
+    "slug": "Interlagos",
     "country": "Brazil",
     "circuit": "Autodromo Jose Carlos Pace",
     "date": "Nov 9, 4:00 AM"
@@ -151,7 +151,7 @@
   {
     "round": 22,
     "slug": "las-vegas",
-    "country": "Las Vegas",
+    "country": "USA",
     "circuit": "Las Vegas Strip Circuit",
     "date": "Nov 22, 3:00 PM"
   },
@@ -165,7 +165,7 @@
   {
     "round": 24,
     "slug": "yas-marina",
-    "country": "Abu Dhabi",
+    "country": "UAE",
     "circuit": "Yas Marina Circuit",
     "date": "Dec 7, 12:00 AM"
   }
