@@ -1,0 +1,41 @@
+[
+  {
+    "id": "mclaren",
+    "name": "McLaren",
+    "accent": "mclaren",
+    "tag": "Constructors' Champions",
+    "drivers": [
+      { "name": "L. Norris", "number": "01" },
+      { "name": "O. Piastri", "number": "81" }
+    ]
+  },
+  {
+    "id": "ferrari",
+    "name": "Ferrari HP",
+    "accent": "ferrari",
+    "drivers": [
+      { "name": "C. Leclerc", "number": "16" },
+      { "name": "L. Hamilton", "number": "44" }
+    ]
+  },
+  {
+    "id": "audi",
+    "name": "Audi F1",
+    "accent": "audi",
+    "tag": "New Entrant",
+    "drivers": [
+      { "name": "N. Hulkenberg", "number": "27" },
+      { "name": "G. Bortoleto", "number": "05" }
+    ]
+  },
+  {
+    "id": "cadillac",
+    "name": "Cadillac F1",
+    "accent": "cadillac",
+    "tag": "New Entrant",
+    "drivers": [
+      { "name": "S. Perez", "number": "11" },
+      { "name": "V. Bottas", "number": "77" }
+    ]
+  }
+]

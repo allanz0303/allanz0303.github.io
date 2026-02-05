@@ -110,39 +110,10 @@
                 <span class="w-8 h-1 bg-white"></span>
                 2026 Confirmed Grid
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="glass-panel p-5 team-border-mclaren hover:bg-zinc-900 transition">
-                    <div class="text-[10px] font-bold uppercase text-zinc-500 mb-2">Constructors' Champions</div>
-                    <h3 class="text-lg font-black italic-heading mb-4">McLaren</h3>
-                    <div class="space-y-2 text-sm font-bold">
-                        <div class="flex justify-between border-b border-white/5 pb-1"><span>L. Norris</span> <span class="text-zinc-500">01</span></div>
-                        <div class="flex justify-between border-b border-white/5 pb-1"><span>O. Piastri</span> <span class="text-zinc-500">81</span></div>
-                    </div>
-                </div>
-                <div class="glass-panel p-5 team-border-ferrari hover:bg-zinc-900 transition">
-                    <div class="text-[10px] font-bold uppercase text-zinc-500 mb-2">Scuderia Ferrari</div>
-                    <h3 class="text-lg font-black italic-heading mb-4">Ferrari HP</h3>
-                    <div class="space-y-2 text-sm font-bold">
-                        <div class="flex justify-between border-b border-white/5 pb-1"><span>C. Leclerc</span> <span class="text-zinc-500">16</span></div>
-                        <div class="flex justify-between border-b border-white/5 pb-1"><span>L. Hamilton</span> <span class="text-zinc-500">44</span></div>
-                    </div>
-                </div>
-                <div class="glass-panel p-5 team-border-audi hover:bg-zinc-900 transition">
-                    <div class="text-[10px] font-bold uppercase text-red-500 mb-2">New Entrant</div>
-                    <h3 class="text-lg font-black italic-heading mb-4">Audi F1</h3>
-                    <div class="space-y-2 text-sm font-bold">
-                        <div class="flex justify-between border-b border-white/5 pb-1"><span>N. Hulkenberg</span> <span class="text-zinc-500">27</span></div>
-                        <div class="flex justify-between border-b border-white/5 pb-1"><span>G. Bortoleto</span> <span class="text-zinc-500">05</span></div>
-                    </div>
-                </div>
-                <div class="glass-panel p-5 team-border-cadillac hover:bg-zinc-900 transition">
-                    <div class="text-[10px] font-bold uppercase text-yellow-500 mb-2">New Entrant</div>
-                    <h3 class="text-lg font-black italic-heading mb-4">Cadillac F1</h3>
-                    <div class="space-y-2 text-sm font-bold">
-                        <div class="flex justify-between border-b border-white/5 pb-1"><span>S. Perez</span> <span class="text-zinc-500">11</span></div>
-                        <div class="flex justify-between border-b border-white/5 pb-1"><span>V. Bottas</span> <span class="text-zinc-500">77</span></div>
-                    </div>
-                </div>
+            <div
+                id="teams-container"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- teams.js render here -->
             </div>
         </section>
 
@@ -182,5 +153,6 @@
         </div>
     </footer>
     <script src="js/schedule.js"></script>
+    <script src="js/teams.js"></script>
 </body>
 </html>
