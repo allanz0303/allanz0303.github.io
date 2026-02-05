@@ -2,8 +2,8 @@
   {
     "round": 1,
     "country": "Australia",
-    "circuit": "Albert Park",
-    "date": "Mar 06–08",
+    "circuit": "Albert Park Circuit",
+    "date": "Mar 8, 3:00 PM",
     "tag": "Opening Round",
     "highlight": true
   },
@@ -11,18 +11,138 @@
     "round": 2,
     "country": "China",
     "circuit": "Shanghai International Circuit",
-    "date": "Mar 13–15"
+    "date": "Mar 15, 6:00 PM"
   },
   {
     "round": 3,
     "country": "Japan",
     "circuit": "Suzuka Circuit",
-    "date": "Mar 27–29"
+    "date": "Mar 29, 4:00 PM"
   },
   {
     "round": 4,
     "country": "Bahrain",
-    "circuit": "Sakhir",
-    "date": "Apr 10–12"
+    "circuit": "Bahrain International Circuit",
+    "date": "Apr 13, 1:00 AM"
+  },
+  {
+    "round": 5,
+    "country": "Saudi Arabia",
+    "circuit": "Jeddah Corniche Circuit",
+    "date": "Apr 20, 3:00 PM"
+  },
+  {
+    "round": 6,
+    "country": "Miami",
+    "circuit": "Miami International Autodrome",
+    "date": "May 4, 6:00 AM"
+  },
+  {
+    "round": 7,
+    "country": "Canada",
+    "circuit": "Circuit Gilles-Villeneuve",
+    "date": "May 25, 6:00 AM"
+  },
+  {
+    "round": 8,
+    "country": "Monaco",
+    "circuit": "Circuit de Monaco",
+    "date": "Jun 7, 11:00 PM"
+  },
+  {
+    "round": 9,
+    "country": "Barcelona-Catalunya",
+    "circuit": "Circuit de Barcelona-Catalunya",
+    "date": "Jun 14, 11:00 PM"
+  },
+  {
+    "round": 10,
+    "country": "Austria",
+    "circuit": "Red Bull Ring",
+    "date": "Jun 28, 11:00 PM"
+  },
+  {
+    "round": 11,
+    "country": "Great Britain",
+    "circuit": "Silverstone Circuit",
+    "date": "Jul 6, 12:00 AM"
+  },
+  {
+    "round": 12,
+    "country": "Belgium",
+    "circuit": "Circuit de Spa-Francorchamps",
+    "date": "Jul 19, 11:00 PM"
+  },
+  {
+    "round": 13,
+    "country": "Hungary",
+    "circuit": "Hungaroring",
+    "date": "Jul 26, 11:00 PM"
+  },
+  {
+    "round": 14,
+    "country": "Netherlands",
+    "circuit": "Circuit Zandvoort",
+    "date": "Aug 23, 11:00 PM"
+  },
+  {
+    "round": 15,
+    "country": "Italy",
+    "circuit": "Autodromo Nazionale Monza",
+    "date": "Sep 6, 11:00 PM"
+  },
+  {
+    "round": 16,
+    "country": "Spain",
+    "circuit": "Madring",
+    "date": "Sep 13, 11:00 PM"
+  },
+  {
+    "round": 17,
+    "country": "Azerbaijan",
+    "circuit": "Baku City Circuit",
+    "date": "Sep 26, 9:00 PM"
+  },
+  {
+    "round": 18,
+    "country": "Singapore",
+    "circuit": "Marina Bay Street Circuit",
+    "date": "Oct 11, 11:00 PM"
+  },
+  {
+    "round": 19,
+    "country": "United States",
+    "circuit": "Circuit of The Americas",
+    "date": "Oct 26, 7:00 AM"
+  },
+  {
+    "round": 20,
+    "country": "Mexico",
+    "circuit": "Autodromo Hermanos Rodriguez",
+    "date": "Nov 2, 7:00 AM"
+  },
+  {
+    "round": 21,
+    "country": "Brazil",
+    "circuit": "Autodromo Jose Carlos Pace",
+    "date": "Nov 9, 4:00 AM"
+  },
+  {
+    "round": 22,
+    "country": "Las Vegas",
+    "circuit": "Las Vegas Strip Circuit",
+    "date": "Nov 22, 3:00 PM"
+  },
+  {
+    "round": 23,
+    "country": "Qatar",
+    "circuit": "Lusail international Circuit",
+    "date": "Nov 30, 3:00 AM"
+  },
+  {
+    "round": 24,
+    "country": "Abu Dhabi",
+    "circuit": "Yas Marina Circuit",
+    "date": "Dec 7, 12:00 AM"
   }
 ]
