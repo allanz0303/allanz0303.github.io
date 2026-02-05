@@ -4,9 +4,11 @@ fetch("data/schedule-2026.json")
     const container = document.getElementById("schedule-container");
 
     container.innerHTML = races.map(race => `
-      <div class="flex-none w-64 glass-panel p-6 border-t-4
-        ${race.highlight ? "border-t-red-600" : "border-t-zinc-800"}
-        hover:-translate-y-1 transition-transform">
+      <a
+        href="pages/track.html?round=${race.round}"
+        class="flex-none w-64 glass-panel p-6 border-t-4
+          ${race.highlight ? "border-t-red-600" : "border-t-zinc-800"}
+          hover:-translate-y-1 transition-transform block">
 
         <div class="flex justify-between items-start mb-4">
           <span class="text-4xl font-black text-white/20">
@@ -30,8 +32,9 @@ fetch("data/schedule-2026.json")
         <p class="text-xs text-zinc-400 mt-1">
           ${race.circuit}
         </p>
-      </div>
+      </a>
     `).join("");
+
   })
   .catch(err => {
     console.error("Failed to load schedule:", err);
