@@ -1,7 +1,7 @@
 # racyn.com.au
 ```bash
 /
-├─ index.html              # 首页（你现在这页）
+├─ index.html              # 首页
 ├─ /assets
 │   ├─ /img
 │   │   ├─ logo.jpeg
@@ -10,7 +10,7 @@
 │   └─ /icons
 │
 ├─ /css
-│   └─ styles.css          # 你自定义样式（以后从 <style> 拆出来）
+│   └─ styles.css          # 自定义样式
 │
 ├─ /js
 │   ├─ schedule.js         # 赛历渲染逻辑
@@ -27,6 +27,6 @@
 │   ├─ teams.html
 │   └─ track.html          # 单赛道页
 │
-├─ CNAME                   # GitHub Pages 用（已自动生成）
+├─ CNAME                   # GitHub Pages 用
 └─ README.md
 ```
