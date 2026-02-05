@@ -20,37 +20,47 @@ function createTeamCard(team) {
   const card = document.createElement("div");
 
   card.className = `
+    group
     glass-panel
     p-5
     team-border-${team.accent}
-    hover:bg-zinc-900
-    transition
     cursor-pointer
+    transition-all
+    hover:bg-zinc-900
+    hover:-translate-y-1
   `;
 
   card.innerHTML = `
-    ${team.tag ? `
-      <div class="text-[10px] font-bold uppercase text-zinc-500 mb-2">
-        ${team.tag}
-      </div>` : ""}
+    <div class="flex justify-between items-start mb-2">
+        ${team.tag ? `
+        <div class="text-[10px] font-bold uppercase text-zinc-500">
+            ${team.tag}
+        </div>` : `<div></div>`}
+
+        <!-- 暗示箭头 -->
+        <div class="text-zinc-500 text-xl opacity-0 group-hover:opacity-100 transition-opacity">
+        →
+        </div>
+    </div>
 
     <h3 class="text-lg font-black italic-heading mb-4">
-      ${team.name}
+        ${team.name}
     </h3>
 
     <div class="space-y-2 text-sm font-bold">
-      ${team.drivers.map(driver => `
+        ${team.drivers.map(driver => `
         <div class="flex justify-between border-b border-white/5 pb-1">
-          <span>${driver.name}</span>
-          <span class="text-zinc-500">${driver.number}</span>
+            <span>${driver.name}</span>
+            <span class="text-zinc-500">${driver.number}</span>
         </div>
-      `).join("")}
+        `).join("")}
     </div>
   `;
 
+
   // 以后直接解锁 team page
   card.addEventListener("click", () => {
-    window.location.href = `/pages/team.html?id=${team.id}`;
+    window.location.href = `pages/teams.html?id=${team.id}`;
   });
 
   return card;

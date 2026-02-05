@@ -5,7 +5,7 @@
     "accent": "mclaren",
     "tag": "Constructors' Champions",
     "drivers": [
-      { "name": "L. Norris", "number": "01" },
+      { "name": "L. Norris", "number": "1" },
       { "name": "O. Piastri", "number": "81" }
     ]
   },
@@ -13,6 +13,7 @@
     "id": "ferrari",
     "name": "Ferrari HP",
     "accent": "ferrari",
+    "tag": "Tifosi's Pride",
     "drivers": [
       { "name": "C. Leclerc", "number": "16" },
       { "name": "L. Hamilton", "number": "44" }
@@ -25,7 +26,7 @@
     "tag": "New Entrant",
     "drivers": [
       { "name": "N. Hulkenberg", "number": "27" },
-      { "name": "G. Bortoleto", "number": "05" }
+      { "name": "G. Bortoleto", "number": "5" }
     ]
   },
   {
