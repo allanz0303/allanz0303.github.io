@@ -11,7 +11,7 @@
   },
   {
     "id": "ferrari",
-    "name": "Ferrari HP",
+    "name": "Ferrari",
     "accent": "ferrari",
     "tag": "Tifosi's Pride",
     "drivers": [
@@ -20,8 +20,78 @@
     ]
   },
   {
+    "id": "mercedes",
+    "name": "Mercedes",
+    "accent": "mercedes",
+    "tag": "Silver Arrows",
+    "drivers": [
+      { "name": "G. Russell", "number": "63" },
+      { "name": "K. Antonelli", "number": "12" }
+    ]
+  },
+  {
+    "id": "red-bull-racing",
+    "name": "Red Bull Racing",
+    "accent": "redbull",
+    "tag": "DuDuDuDu",
+    "drivers": [
+      { "name": "M. Verstappen", "number": "3" },
+      { "name": "I. Hadjar", "number": "22" }
+    ]
+  },
+  {
+    "id": "aston-martin",
+    "name": "Aston Martin",
+    "accent": "astonmartin",
+    "tag": "Newey Era",
+    "drivers": [
+      { "name": "F. Alonso", "number": "14" },
+      { "name": "L. Stroll", "number": "18" }
+    ]
+  },
+  {
+    "id": "alpine",
+    "name": "Alpine",
+    "accent": "alpine",
+    "tag": "French Flair",
+    "drivers": [
+      { "name": "P. Gasly", "number": "10" },
+      { "name": "F. Colapinto", "number": "43" }
+    ]
+  },
+  {
+    "id": "williams",
+    "name": "Williams",
+    "accent": "williams",
+    "tag": "Rising Force",
+    "drivers": [
+      { "name": "C. Sainz", "number": "55" },
+      { "name": "A. Albon", "number": "23" }
+    ]
+  },
+  {
+    "id": "racing-bulls",
+    "name": "Racing Bulls",
+    "accent": "rb",
+    "tag": "Young Guns",
+    "drivers": [
+      { "name": "L. Lawson", "number": "30" },
+      { "name": "A. Lindblad", "number": "37" }
+    ]
+  },
+  {
+    "id": "haas",
+    "name": "Haas",
+    "accent": "haas",
+    "tag": "American Spirit",
+    "drivers": [
+      { "name": "E. Ocon", "number": "31" },
+      { "name": "O. Bearman", "number": "87" }
+    ]
+  },
+  {
     "id": "audi",
-    "name": "Audi F1",
+    "name": "Audi",
     "accent": "audi",
     "tag": "New Entrant",
     "drivers": [
@@ -31,7 +101,7 @@
   },
   {
     "id": "cadillac",
-    "name": "Cadillac F1",
+    "name": "Cadillac",
     "accent": "cadillac",
     "tag": "New Entrant",
     "drivers": [
