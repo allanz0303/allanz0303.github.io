@@ -5,7 +5,7 @@ fetch("data/schedule-2026.json")
 
     container.innerHTML = races.map(race => `
       <a
-        href="pages/track.html?round=${race.round}"
+        href="pages/tracks.html?round=${race.round}"
         class="flex-none w-64 glass-panel p-6 border-t-4
           ${race.highlight ? "border-t-red-600" : "border-t-zinc-800"}
           hover:-translate-y-1 transition-transform block">
