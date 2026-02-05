@@ -14,7 +14,7 @@
 │
 ├─ /js
 │   ├─ schedule.js         # 赛历渲染逻辑
-│   ├─ track.js            # 加载赛历页面数据
+│   ├─ tracks.js           # 加载赛历页面数据
 │   ├─ teams.js            # 车队 / 车手渲染
 │   └─ main.js             # 通用逻辑（以后用）
 │
