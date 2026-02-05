@@ -99,47 +99,10 @@
                 <span class="w-8 h-1 bg-red-600"></span>
                 2026 Race Calendar
             </h2>
-            
-            <div class="scroll-container flex gap-4 overflow-x-auto pb-6">
-                <div class="flex-none w-64 glass-panel p-6 border-t-4 border-t-red-600 group hover:-translate-y-1 transition-transform">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-4xl font-black text-white/20">01</span>
-                        <div class="text-right">
-                            <div class="text-[10px] font-bold text-zinc-500 uppercase">Mar 06-08</div>
-                            <div class="text-xs font-black text-red-500 uppercase">Opening Round</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold uppercase italic-heading">Australia</h3>
-                    <p class="text-xs text-zinc-400 mt-1">Albert Park, Melbourne</p>
-                </div>
-
-                <div class="flex-none w-64 glass-panel p-6 border-t-4 border-t-zinc-800 hover:border-t-white transition-colors">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-4xl font-black text-white/20">02</span>
-                        <div class="text-right"><div class="text-[10px] font-bold text-zinc-500 uppercase">Mar 13-15</div></div>
-                    </div>
-                    <h3 class="text-xl font-bold uppercase italic-heading">China</h3>
-                    <p class="text-xs text-zinc-400 mt-1">Shanghai International</p>
-                </div>
-
-                <div class="flex-none w-64 glass-panel p-6 border-t-4 border-t-zinc-800 hover:border-t-white transition-colors">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-4xl font-black text-white/20">03</span>
-                        <div class="text-right"><div class="text-[10px] font-bold text-zinc-500 uppercase">Mar 27-29</div></div>
-                    </div>
-                    <h3 class="text-xl font-bold uppercase italic-heading">Japan</h3>
-                    <p class="text-xs text-zinc-400 mt-1">Suzuka Circuit</p>
-                </div>
-
-                <div class="flex-none w-64 glass-panel p-6 border-t-4 border-t-zinc-800 hover:border-t-white transition-colors">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-4xl font-black text-white/20">04</span>
-                        <div class="text-right"><div class="text-[10px] font-bold text-zinc-500 uppercase">Apr 10-12</div></div>
-                    </div>
-                    <h3 class="text-xl font-bold uppercase italic-heading">Bahrain</h3>
-                    <p class="text-xs text-zinc-400 mt-1">Sakhir</p>
-                </div>
-            </div>
+            <div
+                id="schedule-container"
+                class="scroll-container flex gap-4 overflow-x-auto pb-6">
+            </div>  
         </section>
 
         <section id="teams">
@@ -218,6 +181,6 @@
              <p class="text-[10px] text-zinc-600 uppercase tracking-widest">© 2026 RACYN.COM.AU</p>
         </div>
     </footer>
-
+    <script src="js/schedule.js"></script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+[
+  {
+    "round": 1,
+    "country": "Australia",
+    "circuit": "Albert Park",
+    "date": "Mar 06–08",
+    "tag": "Opening Round",
+    "highlight": true
+  },
+  {
+    "round": 2,
+    "country": "China",
+    "circuit": "Shanghai International Circuit",
+    "date": "Mar 13–15"
+  },
+  {
+    "round": 3,
+    "country": "Japan",
+    "circuit": "Suzuka Circuit",
+    "date": "Mar 27–29"
+  },
+  {
+    "round": 4,
+    "country": "Bahrain",
+    "circuit": "Sakhir",
+    "date": "Apr 10–12"
+  }
+]
