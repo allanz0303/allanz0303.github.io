@@ -1,15 +1,15 @@
 const params = new URLSearchParams(window.location.search);
-const round = params.get("round");
+const slug = params.get("track");
 
 fetch("../data/schedule-2026.json")
   .then(res => res.json())
   .then(races => {
-    const race = races.find(r => String(r.round) === round);
+    const race = races.find(r => r.slug === slug);
 
     if (!race) {
       document.body.innerHTML = `
         <div class="text-center mt-20 text-zinc-500">
-          Race not found
+          Track not found
         </div>`;
       return;
     }
