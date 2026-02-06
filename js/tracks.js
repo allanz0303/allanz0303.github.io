@@ -45,5 +45,9 @@ Promise.all([
   document.getElementById("first_gp").innerText =
     track.first_gp;
 
+  // Track Image
+  document.getElementById("track-image").src =
+    `../assets/img/tracks/${slug}.avif`;
+
   // （下一步可以继续塞更多字段）
 });
