@@ -1,0 +1,63 @@
+/* =========================
+   Global
+========================= */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #050505;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   Typography
+========================= */
+
+.italic-heading {
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+}
+
+/* =========================
+   UI Panels
+========================= */
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   Team Accent Borders
+========================= */
+
+.team-border-ferrari { border-left: 4px solid #FF0000; }
+.team-border-mclaren { border-left: 4px solid #FF8700; }
+.team-border-redbull { border-left: 4px solid #0600EF; }
+.team-border-mercedes { border-left: 4px solid #00D2BE; }
+.team-border-astonmartin { border-left: 4px solid #006F62; }
+.team-border-alpine { border-left: 4px solid #FF87BC; }
+.team-border-williams { border-left: 4px solid #00A0FF; }
+.team-border-rb { border-left: 4px solid #6692FF; }
+.team-border-haas { border-left: 4px solid #B6BABD; }
+.team-border-audi { border-left: 4px solid #F50505; }
+.team-border-cadillac { border-left: 4px solid #FFD700; }
+
+/* =========================
+   Horizontal Scrollbar
+========================= */
+
+.scroll-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
