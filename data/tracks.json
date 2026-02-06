@@ -8,7 +8,6 @@
     "laps": 58,
     "corners": 14,
     "first_gp": 1996,
-    "drs_zones": 4,
     "type": "Street Circuit"
   },
   {
@@ -20,7 +19,6 @@
     "laps": 56,
     "corners": 16,
     "first_gp": 2004,
-    "drs_zones": 3,
     "type": "Permanent"
   },
   {
@@ -32,7 +30,6 @@
     "laps": 53,
     "corners": 18,
     "first_gp": 1987,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
@@ -44,7 +41,6 @@
     "laps": 57,
     "corners": 15,
     "first_gp": 2004,
-    "drs_zones": 3,
     "type": "Permanent"
   },
   {
@@ -56,7 +52,6 @@
     "laps": 50,
     "corners": 27,
     "first_gp": 2021,
-    "drs_zones": 3,
     "type": "Street Circuit"
   },
   {
@@ -68,7 +63,6 @@
     "laps": 57,
     "corners": 19,
     "first_gp": 2022,
-    "drs_zones": 3,
     "type": "Street Circuit"
   },
   {
@@ -80,7 +74,6 @@
     "laps": 70,
     "corners": 14,
     "first_gp": 1978,
-    "drs_zones": 2,
     "type": "Street Circuit"
   },
   {
@@ -92,7 +85,6 @@
     "laps": 78,
     "corners": 19,
     "first_gp": 1950,
-    "drs_zones": 1,
     "type": "Street Circuit"
   },
   {
@@ -104,7 +96,6 @@
     "laps": 66,
     "corners": 14,
     "first_gp": 1991,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
@@ -116,7 +107,6 @@
     "laps": 71,
     "corners": 10,
     "first_gp": 1964,
-    "drs_zones": 3,
     "type": "Permanent"
   },
   {
@@ -128,7 +118,6 @@
     "laps": 52,
     "corners": 18,
     "first_gp": 1950,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
@@ -140,11 +129,10 @@
     "laps": 44,
     "corners": 19,
     "first_gp": 1950,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
-    "slug": "Hungaroring",
+    "slug": "hungaroring",
     "name": "Hungaroring",
     "country": "Hungary",
     "city": "Budapest",
@@ -152,7 +140,6 @@
     "laps": 70,
     "corners": 14,
     "first_gp": 1986,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
@@ -164,7 +151,6 @@
     "laps": 72,
     "corners": 14,
     "first_gp": 1948,
-    "drs_zones": 3,
     "type": "Permanent"
   },
   {
@@ -176,11 +162,10 @@
     "laps": 53,
     "corners": 11,
     "first_gp": 1950,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
-    "slug": "madrid",
+    "slug": "madring",
     "name": "Madrid Street Circuit (Madring)",
     "country": "Spain",
     "city": "Madrid",
@@ -188,7 +173,6 @@
     "laps": 56,
     "corners": 20,
     "first_gp": 2026,
-    "drs_zones": 3,
     "type": "Street Circuit"
   },
   {
@@ -200,7 +184,6 @@
     "laps": 51,
     "corners": 20,
     "first_gp": 2016,
-    "drs_zones": 2,
     "type": "Street Circuit"
   },
   {
@@ -212,7 +195,6 @@
     "laps": 62,
     "corners": 23,
     "first_gp": 2008,
-    "drs_zones": 3,
     "type": "Street Circuit"
   },
   {
@@ -224,7 +206,6 @@
     "laps": 56,
     "corners": 20,
     "first_gp": 2012,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
@@ -236,11 +217,10 @@
     "laps": 71,
     "corners": 17,
     "first_gp": 1963,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
-    "slug": "Interlagos",
+    "slug": "interlagos",
     "name": "Autodromo Jose Carlos Pace",
     "country": "Brazil",
     "city": "Sao Paulo",
@@ -248,7 +228,6 @@
     "laps": 71,
     "corners": 15,
     "first_gp": 1973,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
@@ -260,7 +239,6 @@
     "laps": 50,
     "corners": 17,
     "first_gp": 2023,
-    "drs_zones": 3,
     "type": "Street Circuit"
   },
   {
@@ -272,7 +250,6 @@
     "laps": 57,
     "corners": 16,
     "first_gp": 2021,
-    "drs_zones": 2,
     "type": "Permanent"
   },
   {
@@ -284,7 +261,6 @@
     "laps": 58,
     "corners": 16,
     "first_gp": 2009,
-    "drs_zones": 2,
     "type": "Permanent"
   }
 ]
