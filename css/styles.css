@@ -62,6 +62,66 @@ body {
     border-radius: 4px;
 }
 /* =========================
+   Schedule Card Carousel
+========================= */
+
+#schedule-container.card-carousel {
+    position: relative;
+    height: 380px;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.card-carousel .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    max-width: calc(100% - 40px);
+    transition: transform 520ms cubic-bezier(0.22,1,0.36,1), opacity 320ms ease, box-shadow 320ms ease;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    display: block;
+}
+
+.card-carousel .card .card-inner { /* keep spacing inside card */
+    display: block;
+}
+
+.card-carousel .card.active {
+    transform: translate(-50%, -50%) translateX(0) scale(1);
+    z-index: 40;
+    opacity: 1;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.card-carousel .card.next {
+    transform: translate(-50%, -50%) translateX(240px) scale(0.86);
+    z-index: 30;
+    opacity: 0.98;
+}
+
+.card-carousel .card.prev {
+    transform: translate(-50%, -50%) translateX(-240px) scale(0.82);
+    z-index: 20;
+    opacity: 0.92;
+}
+
+.card-carousel .card.hidden {
+    transform: translate(-50%, -50%) translateX(0) scale(0.72);
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    #schedule-container.card-carousel { height: 320px; }
+    .card-carousel .card { width: 320px; }
+    .card-carousel .card.next, .card-carousel .card.prev { transform: translate(-50%, -50%) translateX(140px) scale(0.86); }
+}
+/* =========================
    Scroll Anchor Offset
 ========================= */
 
