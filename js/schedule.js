@@ -40,18 +40,35 @@ fetch("data/schedule-2026.json")
     let active = 0;
     const total = cards.length;
 
-    const mod = (n) => ((n % total) + total) % total;
-    const nextIndex = (i) => mod(i + 1);
-    const prevIndex = (i) => mod(i - 1);
-
     function updatePositions() {
       cards.forEach((el, i) => {
-        el.classList.remove('active', 'next', 'prev', 'hidden');
-        if (i === active) el.classList.add('active');
-        else if (i === nextIndex(active)) el.classList.add('next');
-        else if (i === prevIndex(active)) el.classList.add('prev');
-        else el.classList.add('hidden');
+        el.classList.remove('active', 'near');
+        const dist = i - active;
+        const abs = Math.abs(dist);
+
+        if (i === active) {
+          el.classList.add('active');
+        } else if (abs === 1) {
+          el.classList.add('near');
+        }
+
+        // visual depth and opacity based on distance
+        el.style.zIndex = String(60 - abs);
+        const opacity = Math.max(0.28, 1 - abs * 0.12);
+        el.style.opacity = String(opacity);
+
+        // overlapping translate and scale so cards tuck behind the active
+        const overlap = (window.innerWidth < 768) ? 56 : 76;
+        const translateX = -dist * overlap;
+        const scale = Math.max(0.66, 1 - abs * 0.08);
+        el.style.transform = `translateX(${translateX}px) scale(${scale})`;
       });
+
+      // center active card in the scroll viewport
+      const activeEl = cards[active];
+      if (activeEl && typeof activeEl.scrollIntoView === 'function') {
+        activeEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
     }
 
     // initialize
@@ -60,25 +77,29 @@ fetch("data/schedule-2026.json")
     cards.forEach(card => {
       card.addEventListener('click', (e) => {
         const idx = Number(card.dataset.index);
-        if (card.classList.contains('active')) {
-          // active card: allow navigation
-          return; 
+        if (idx === active) {
+          // active card: allow default navigation (follow link)
+          return;
         }
-        // not active: move clicked card to front instead of navigating
+        // move clicked card to front instead of navigating
         e.preventDefault();
         active = idx;
         updatePositions();
       });
     });
 
-    // optional: allow keyboard arrow navigation while focused
+    // keyboard arrow navigation (no wrapping)
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') {
-        active = nextIndex(active);
-        updatePositions();
+        if (active < total - 1) {
+          active = active + 1;
+          updatePositions();
+        }
       } else if (e.key === 'ArrowLeft') {
-        active = prevIndex(active);
-        updatePositions();
+        if (active > 0) {
+          active = active - 1;
+          updatePositions();
+        }
       }
     });
 

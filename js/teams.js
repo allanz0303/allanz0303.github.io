@@ -57,9 +57,10 @@ function createTeamCard(team) {
   card.className = `
     group
     glass-panel
-    p-5
+    p-6
     team-border-${team.accent}
     cursor-pointer
+    team-card
     transition-all
     hover:bg-zinc-900
     hover:-translate-y-1
