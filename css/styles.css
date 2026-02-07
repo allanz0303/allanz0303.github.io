@@ -61,3 +61,10 @@ body {
     background: #333;
     border-radius: 4px;
 }
+/* =========================
+   Scroll Anchor Offset
+========================= */
+
+#news, #schedule, #teams {
+    scroll-margin-top: 128px;
+}
