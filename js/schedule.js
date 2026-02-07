@@ -46,22 +46,14 @@ fetch("data/schedule-2026.json")
         const dist = i - active;
         const abs = Math.abs(dist);
 
-        if (i === active) {
-          el.classList.add('active');
-        } else if (abs === 1) {
-          el.classList.add('near');
-        }
-
+        // mark classes for CSS-driven scale/visuals
+        if (i === active) el.classList.add('active');
+        else if (abs === 1) el.classList.add('near');
+        
         // visual depth and opacity based on distance
         el.style.zIndex = String(60 - abs);
-        const opacity = Math.max(0.28, 1 - abs * 0.12);
+        const opacity = Math.max(0.35, 1 - abs * 0.12);
         el.style.opacity = String(opacity);
-
-        // overlapping translate and scale so cards tuck behind the active
-        const overlap = (window.innerWidth < 768) ? 56 : 76;
-        const translateX = -dist * overlap;
-        const scale = Math.max(0.66, 1 - abs * 0.08);
-        el.style.transform = `translateX(${translateX}px) scale(${scale})`;
       });
 
       // center active card in the scroll viewport
@@ -85,7 +77,123 @@ fetch("data/schedule-2026.json")
         e.preventDefault();
         active = idx;
         updatePositions();
+        moveCarTo(active);
       });
+    });
+
+    // build custom track (dots + car handle)
+    const trackRoot = document.getElementById('schedule-track');
+    trackRoot.innerHTML = '';
+    const trackLine = document.createElement('div');
+    trackLine.className = 'track-line';
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'dots';
+    const dots = [];
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot';
+      d.dataset.index = String(i);
+      d.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        active = i;
+        updatePositions();
+        moveCarTo(i);
+      });
+      dotsWrap.appendChild(d);
+      dots.push(d);
+    }
+
+    const car = document.createElement('div');
+    car.className = 'car-handle';
+    car.innerText = '🏎';
+
+    trackRoot.appendChild(trackLine);
+    trackRoot.appendChild(dotsWrap);
+    trackRoot.appendChild(car);
+
+    // compute dot center positions for reliable hit-testing
+    let dotCenters = [];
+    function computeDotCenters() {
+      dotCenters = dots.map(d => {
+        const r = d.getBoundingClientRect();
+        return r.left + r.width / 2;
+      });
+    }
+
+    function moveCarTo(index) {
+      const target = dots[index];
+      if (!target) return;
+      const rootRect = trackRoot.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const left = targetRect.left - rootRect.left + (targetRect.width / 2);
+      car.style.left = `${left}px`;
+
+      // visually mark active dot
+      dots.forEach((dd, ii) => dd.classList.toggle('active', ii === index));
+    }
+
+    // initial measurements (use rAF to wait for layout)
+    requestAnimationFrame(() => {
+      computeDotCenters();
+      moveCarTo(active);
+    });
+
+    // recompute centers on resize / layout changes
+    window.addEventListener('resize', () => {
+      computeDotCenters();
+      moveCarTo(active);
+    });
+
+    // drag behaviour for car (attach move/up to window for reliability)
+    let dragging = false;
+    let activePointerId = null;
+
+    function nearestIndexFromClientX(clientX) {
+      if (!dotCenters.length) computeDotCenters();
+      let best = 0;
+      let bestDist = Infinity;
+      for (let i = 0; i < dotCenters.length; i++) {
+        const cx = dotCenters[i];
+        const dist = Math.abs(cx - clientX);
+        if (dist < bestDist) { bestDist = dist; best = i; }
+      }
+      return best;
+    }
+
+    function onPointerMove(e) {
+      if (!dragging) return;
+      const clientX = e.clientX;
+      const idx = nearestIndexFromClientX(clientX);
+      if (idx !== active) {
+        active = idx;
+        updatePositions();
+      }
+      moveCarTo(active);
+    }
+
+    function onPointerUp(e) {
+      if (!dragging) return;
+      dragging = false;
+      activePointerId = null;
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+    }
+
+    car.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      dragging = true;
+      activePointerId = e.pointerId;
+      window.addEventListener('pointermove', onPointerMove);
+      window.addEventListener('pointerup', onPointerUp);
+    });
+
+    // allow clicking on dotsWrap area to jump
+    dotsWrap.addEventListener('click', (e) => {
+      const rect = dotsWrap.getBoundingClientRect();
+      const idx = nearestIndexFromClientX(e.clientX);
+      active = idx;
+      updatePositions();
+      moveCarTo(active);
     });
 
     // keyboard arrow navigation (no wrapping)
@@ -94,11 +202,13 @@ fetch("data/schedule-2026.json")
         if (active < total - 1) {
           active = active + 1;
           updatePositions();
+          moveCarTo(active);
         }
       } else if (e.key === 'ArrowLeft') {
         if (active > 0) {
           active = active - 1;
           updatePositions();
+          moveCarTo(active);
         }
       }
     });
