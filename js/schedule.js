@@ -37,7 +37,26 @@ fetch("data/schedule-2026.json")
     const cards = Array.from(container.querySelectorAll('.card'));
     if (!cards.length) return;
 
+    // determine initial active card from hash (e.g. #schedule?track=monaco)
     let active = 0;
+    try {
+      const hash = window.location.hash || '';
+      if (hash.startsWith('#schedule')) {
+        const hp = new URLSearchParams((hash.split('?')[1]) || '');
+        const trackSlug = hp.get('track');
+        if (trackSlug) {
+          const found = races.findIndex(r => r.slug === trackSlug);
+          if (found >= 0) active = found;
+        }
+        // ensure we scroll to schedule section on page load
+        setTimeout(() => {
+          const el = document.getElementById('schedule');
+          if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }, 20);
+      }
+    } catch (e) {
+      // ignore
+    }
     const total = cards.length;
 
     function updatePositions() {

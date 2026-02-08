@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 读取 URL 参数 ?id=mclaren
   const params = new URLSearchParams(window.location.search);
   const teamId = params.get("id");
+  // also read hash params (for returning from detail page)
+  const hashParams = new URLSearchParams((window.location.hash.split('?')[1]) || "");
+  const hashTeam = hashParams.get("team");
 
   fetch(getDataPath())
     .then(res => res.json())
@@ -19,13 +22,29 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         renderTeamDetail(team, detailContainer);
+        // set back link to return to teams section and highlight this team
+        const back = document.getElementById('back-link');
+        if (back) back.href = `/#teams?team=${encodeURIComponent(team.id)}`;
       }
 
       // ===== 首页列表模式 =====
       if (listContainer) {
         teams.forEach(team => {
-          listContainer.appendChild(createTeamCard(team));
+          const card = createTeamCard(team);
+          listContainer.appendChild(card);
         });
+
+        // if a team was specified in the hash, scroll to it and mark
+        if (hashTeam) {
+          const target = listContainer.querySelector(`[data-team-id="${hashTeam}"]`);
+          if (target && typeof target.scrollIntoView === 'function') {
+            // small timeout to ensure layout done
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              target.classList.add('highlight');
+            }, 100);
+          }
+        }
       }
     })
     .catch(err => {
@@ -95,6 +114,9 @@ function createTeamCard(team) {
   card.addEventListener("click", () => {
     window.location.href = `pages/teams.html?id=${team.id}`;
   });
+
+  // attach team id for hash targeting
+  card.dataset.teamId = team.id;
 
   return card;
 }

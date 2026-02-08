@@ -1,6 +1,12 @@
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("track");
 
+// set back link to return to the schedule section and highlight this track
+const backLink = document.getElementById('back-link');
+if (backLink && slug) {
+  backLink.href = `/#schedule?track=${encodeURIComponent(slug)}`;
+}
+
 Promise.all([
   fetch("../data/schedule-2026.json").then(r => r.json()),
   fetch("../data/tracks.json").then(r => r.json())
