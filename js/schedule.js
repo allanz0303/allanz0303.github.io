@@ -38,8 +38,23 @@ fetch("data/schedule-2026.json")
     if (!cards.length) return;
 
     // determine initial active card from hash (e.g. #schedule?track=monaco)
+    // by default auto-select next upcoming race based on today's date
     let active = 0;
+    // helper to parse the human-readable date string from JSON into a Date
+    const parseRaceDate = (str) => {
+      // strip trailing timezone abbreviation (e.g. "AEST")
+      let s = str.replace(/\s+[A-Z]{2,4}$/g, '').trim();
+      // append year so JS doesn't default to current year if it's different
+      s = s + ' 2026';
+      return new Date(s);
+    };
+
     try {
+      // find upcoming race (first whose date >= now)
+      const now = new Date();
+      const upcoming = races.findIndex(r => parseRaceDate(r.date) >= now);
+      if (upcoming >= 0) active = upcoming;
+
       const hash = window.location.hash || '';
       if (hash.startsWith('#schedule')) {
         const hp = new URLSearchParams((hash.split('?')[1]) || '');
@@ -75,15 +90,18 @@ fetch("data/schedule-2026.json")
         el.style.opacity = String(opacity);
       });
 
+      // highlight corresponding dot and date label
+      dots.forEach((d, i) => d.classList.toggle('active', i === active));
+      if (dateLabels && dateLabels.length) {
+        dateLabels.forEach((lbl, i) => lbl.classList.toggle('active', i === active));
+      }
+
       // center active card in the scroll viewport
       const activeEl = cards[active];
       if (activeEl && typeof activeEl.scrollIntoView === 'function') {
         activeEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }
     }
-
-    // initialize
-    updatePositions();
 
     cards.forEach(card => {
       card.addEventListener('click', (e) => {
@@ -100,7 +118,7 @@ fetch("data/schedule-2026.json")
       });
     });
 
-    // build custom track (dots + car handle)
+    // build custom track (dots + car handle + date display)
     const trackRoot = document.getElementById('schedule-track');
     trackRoot.innerHTML = '';
     const trackLine = document.createElement('div');
@@ -108,7 +126,17 @@ fetch("data/schedule-2026.json")
     const dotsWrap = document.createElement('div');
     dotsWrap.className = 'dots';
     const dots = [];
+    // also container for an individual date label under each dot
+    const datesWrap = document.createElement('div');
+    datesWrap.className = 'dates';
+    const dateLabels = [];
+
+    // because labels will be absolutely positioned within the dates container,
+    // ensure it itself is positioned relative
+    datesWrap.style.position = 'relative';
+
     for (let i = 0; i < total; i++) {
+      // dot element
       const d = document.createElement('div');
       d.className = 'dot';
       d.dataset.index = String(i);
@@ -120,6 +148,14 @@ fetch("data/schedule-2026.json")
       });
       dotsWrap.appendChild(d);
       dots.push(d);
+
+      // label element (text beneath the bar) - show only month/day, drop time
+      const lbl = document.createElement('div');
+      lbl.className = 'date-label';
+      // take portion before first comma (e.g. "Mar 8")
+      lbl.innerText = races[i].date.split(',')[0];
+      datesWrap.appendChild(lbl);
+      dateLabels.push(lbl);
     }
 
     const car = document.createElement('div');
@@ -129,13 +165,25 @@ fetch("data/schedule-2026.json")
     trackRoot.appendChild(trackLine);
     trackRoot.appendChild(dotsWrap);
     trackRoot.appendChild(car);
+    trackRoot.appendChild(datesWrap);
+
+    // once dots and labels exist we can update visual positions (active classes)
+    updatePositions();
 
     // compute dot center positions for reliable hit-testing
     let dotCenters = [];
     function computeDotCenters() {
+      const rootRect = trackRoot.getBoundingClientRect();
       dotCenters = dots.map(d => {
         const r = d.getBoundingClientRect();
         return r.left + r.width / 2;
+      });
+      // reposition labels precisely beneath each dot
+      dotCenters.forEach((center, i) => {
+        const lbl = dateLabels[i];
+        if (lbl) {
+          lbl.style.left = `${center - rootRect.left}px`;
+        }
       });
     }
 
@@ -155,6 +203,7 @@ fetch("data/schedule-2026.json")
     requestAnimationFrame(() => {
       computeDotCenters();
       moveCarTo(active);
+      updatePositions(); // double-check styling after car moves
     });
 
     // recompute centers on resize / layout changes

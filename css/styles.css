@@ -210,6 +210,34 @@ body {
 
 .schedule-track .car-handle:active { cursor: grabbing; }
 
+/* date labels under the track – each absolutely positioned under its dot */
+.schedule-track .dates {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 4px;
+    height: 1.25rem;
+    pointer-events: none;
+}
+
+.schedule-track .date-label {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    font-size: 0.75rem; /* slightly smaller text */
+    color: #ccc;
+    white-space: nowrap;
+    opacity: 0.6;
+    transition: opacity 200ms ease, color 200ms ease;
+}
+
+.schedule-track .date-label.active {
+    opacity: 1;
+    color: white;
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     .schedule-track { height: 48px; }
     .schedule-track .car-handle { width: 30px; height: 20px; font-size: 12px; }
